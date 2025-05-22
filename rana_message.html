@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>💌 إلى رنا</title>
+  <style>
+    body {
+      font-family: 'Amiri', serif;
+      background: linear-gradient(45deg, #ffe6f0, #ffcce6, #ffb3d9, #ffd6e8);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: #700040;
+      text-align: center;
+      padding: 50px 20px;
+      overflow: hidden;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    p {
+      font-size: 1.5em;
+      line-height: 1.8;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    button {
+      background-color: #ff66b2;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #d94a93;
+    }
+
+    .flowers {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('https://i.ibb.co/4fWxTZt/pink-flower.png') no-repeat center;
+      background-size: contain;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .gallery {
+      display: none;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 120px;
+      border-radius: 15px;
+      border: 3px solid #ffcce6;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flowers" id="flower-container"></div>
+
+  <h1>إلى رنا 💗</h1>
+  <p>
+    رنا الغالية 🌟  
+    أريدچ تتذكّرين دايمًا شكد إنتِ إنسانة عظيمة، قوية، وواقفة بوجه الدنيا مثل الأبطال 💪  
+    يمكن تتعبين، يمكن تمرين بأيام صعبة، بس تدرين شنو؟  
+    كل خطوة جاي تمشينها، حتى لو ببطء، هي نصر جديد إلك 👑  
+    آني مؤمن بچ، بكل شي تسوينه، وبكل أحلامچ الكبيرة...  
+    لا تخافين من الفشل، لأنج مصيرچ تنجحين وتفرحين وتحققي كلشي ببالچ 🔥  
+    خلي هالموسيقى والصور تكون دفعة طاقة إلك، لأنج تستاهلين كل الدعم والحب ✨
+  </p>
+
+  <button onclick="startLove()">ابدئي الرسالة 💞</button>
+
+  <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/EcEkTk0Pojw?autoplay=1&mute=1&loop=1&playlist=EcEkTk0Pojw" 
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <div class="gallery" id="bubblesGallery">
+    <img src="https://static.wikia.nocookie.net/powerpuff/images/7/7b/Bubbles-pic.png" alt="Bubbles">
+    <img src="https://static.wikia.nocookie.net/powerpuff/images/2/23/Blossom-pic.png" alt="Blossom">
+    <img src="https://static.wikia.nocookie.net/powerpuff/images/1/14/Buttercup-pic.png" alt="Buttercup">
+  </div>
+
+  <script>
+    function startLove() {
+      document.querySelector("iframe").style.display = "block";
+      document.getElementById("bubblesGallery").style.display = "flex";
+      startFlowers();
+
+      document.querySelector("p").innerHTML = `
+        رنا الغالية 🌟  
+        أريدچ تتذكّرين دايمًا شكد إنتِ إنسانة عظيمة، قوية، وواقفة بوجه الدنيا مثل الأبطال 💪  
+        يمكن تتعبين، يمكن تمرين بأيام صعبة، بس تدرين شنو؟  
+        كل خطوة جاي تمشينها، حتى لو ببطء، هي نصر جديد إلك 👑  
+        آني مؤمن بچ، بكل شي تسوينه، وبكل أحلامچ الكبيرة...  
+        لا تخافين من الفشل، لأنج مصيرچ تنجحين وتفرحين وتحققي كلشي ببالچ 🔥  
+       ✨
+      `;
+      document.querySelector("h1").innerText = "رنا... إنتِ بطلة حقيقية 💖";
+    }
+
+    function startFlowers() {
+      const container = document.getElementById('flower-container');
+      for (let i = 0; i < 40; i++) {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = (3 + Math.random() * 5) + 's';
+        container.appendChild(flower);
+      }
+    }
+  </script>
+
+</body>
+</html>
